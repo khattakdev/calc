@@ -1,7 +1,126 @@
-@import "basic/colors";
-@import "basic/basic";
-@import "basic/grid";
+// @import "basic/colors";
+// @import "basic/basic";
 
-@import "components/header";
-@import "components/sidebar";
-@import "components/main-content";
+// .body {
+//   color: green;
+// }
+
+$color-primary: #272727;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #4ecdc4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #556270,
+    #4ecdc4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #556270,
+    #4ecdc4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 490px;
+  min-width: 350px;
+  background-color: $color-primary;
+  font-size: 1.6rem;
+  color: white;
+  border-radius: 5px;
+
+  & .top-bar {
+    height: 25px;
+    background-color: #2c2c2c;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+    & .dot {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    & .dot-1 {
+      background-color: #ffffffb4;
+    }
+
+    & .dot-2 {
+      background-color: #c9c9c9a8;
+    }
+
+    & .dot-3 {
+      background-color: #9e9e9ea4;
+    }
+  }
+
+  .result-bar {
+    min-height: 150px;
+    // padding-top: 30px;
+    display: flex;
+    padding: 0 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+    * {
+      margin: 0;
+    }
+
+    p {
+      color: #cecece;
+      font-size: 2.1rem;
+    }
+
+    h2 {
+      font-size: 3.6rem;
+    }
+  }
+
+  .buttons {
+    background-color: #1f1f1f;
+    min-height: 305px;
+    margin: 5px;
+    border: 2.4px solid #1f1f1f;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 2.4px;
+    row-gap: 2.4px;
+    font-size: 2.3rem;
+    & .btn {
+      background-color: $color-primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s linear;
+      &:hover {
+        transform: scale(0.98);
+        background-color: #556270;
+      }
+    }
+    & .btn-dark {
+      background-color: #363636;
+      font-weight: normal;
+    }
+  }
+}
