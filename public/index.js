@@ -33,6 +33,11 @@ selector.backspaceBtn.addEventListener("click", () => {
 // Arithmatic Operations
 for (const key in selector.operations) {
   selector.operations[key].addEventListener("click", function (e) {
+    if (equaled) {
+      aOps = [e.target.innerText];
+      logsBar.innerText = record[0] + e.target.innerText;
+      console.log(record, aOps);
+    }
     // Return If NO number is entered or just Dot is entered
     if (!isSign && (!result || result == ".")) return;
 
@@ -98,17 +103,19 @@ selector.plusMinusBtn.addEventListener("click", () => {
   if (Math.sign(num) == 1 || Math.sign(num) == -1) {
     num = num * -1;
     resultBar.innerText = num;
+    if (record[0]) record[0] = num;
+    console.log(resultBar.innerText);
   }
 });
 function buttonHandler(e) {
   // If User Pressed Equal Last time
   if (equaled) {
-    record = [];
+    // record = [];
     isSign = false;
     result = 0;
-    aOps = [];
+    // aOps = [];
     equaled = false;
-    logsBar.innerText = "";
+    // logsBar.innerText = "";
   }
   // Special Case for DOT (.)
   if (e.target.innerHTML == ".") {
